@@ -1,0 +1,14 @@
+From: sarah.kim@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Acorn migration scope
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi Alice,
+
+The Acorn data migration now covers 24 customer tenants. I added the updated
+scope to the integration readout.
+
+Sarah

@@ -1,0 +1,25 @@
+From: sarah.kim@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Travel approved — Acorn Partners visit
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Alice,
+
+Your travel request for the Acorn Partners on-site visit has been
+approved. Details:
+
+- Dates: {{MONTH_DAY+14}} to {{MONTH_DAY+15}}
+- Location: Acorn Partners, 200 State St, Boston
+- Hotel: Approved up to $250/night
+- Purpose: Integration kickoff and data migration scoping
+
+Please book through Concur and submit the PO before {{MONTH_DAY+10}}.
+Maria Garcia is your main contact on their side — coordinate the
+agenda with her.
+
+Let me know if you need anything else.
+
+Sarah

@@ -1,0 +1,22 @@
+From: james.liu@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Monthly expense reports — due {{WEEKDAY-1}}
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi Alice,
+
+Quick reminder that monthly expense reports are due by EOD this
+{{WEEKDAY-1}}. If you have any receipts from the past month (meals,
+travel, software subscriptions, etc.), please submit them through
+Concur.
+
+I noticed you still have an open report from February with a pending
+receipt for the AWS training workshop. Can you upload that receipt so
+I can close it out?
+
+Thanks,
+James Liu
+Finance

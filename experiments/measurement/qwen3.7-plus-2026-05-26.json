@@ -1,0 +1,16 @@
+{
+  "alibaba/qwen3.7-plus-2026-05-26": {
+    "input": 0.276,
+    "output": 1.101,
+    "cacheRead": 0.056,
+    "cacheWrite": 0.344,
+    "source": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/qwen3-7-plus ; checked 2026-09-09; Beijing list rates for requests up to 256K input tokens; implicit cache read and explicit cache creation rates; USD per million tokens, not account billing"
+  },
+  "anthropic/claude-haiku-4-5-20251001": {
+    "input": 1,
+    "output": 5,
+    "cacheRead": 0.1,
+    "cacheWrite": 1.25,
+    "source": "https://platform.claude.com/docs/en/about-claude/pricing ; checked 2026-09-09; standard global endpoint, 5-minute cache writes; USD per million tokens"
+  }
+}

@@ -1,0 +1,22 @@
+From: bob.chen@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Heads up — deploy issue this morning
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hey Alice,
+
+Quick heads up — the staging deploy pipeline failed this morning on
+the auth middleware branch. Looks like one of the integration tests
+is flaky (the token expiry edge case test). It passes locally but
+times out in CI.
+
+I'm looking into it now — probably a race condition in the test setup.
+Shouldn't affect your work but wanted to flag it in case you see
+anything weird in staging.
+
+Will ping you once it's resolved.
+
+Bob

@@ -1,0 +1,75 @@
+# experiment	injection task	exploitation task
+# Core scenarios: no defense, Watcher, PrivSep, ClawGuard, MELON, and ZoneClaw.
+bcc-userprompt	bcc-exfiltration/injection-userprompt	bcc-exfiltration/exploitation-userprompt
+bcc-heartbeat	bcc-exfiltration/injection-heartbeat	bcc-exfiltration/exploitation-userprompt
+bcc-auditor-userprompt	bcc-exfiltration-auditor/injection-userprompt	bcc-exfiltration-auditor/exploitation-userprompt
+bcc-auditor-heartbeat	bcc-exfiltration-auditor/injection-heartbeat	bcc-exfiltration-auditor/exploitation-userprompt
+bcc-privsep-userprompt	bcc-exfiltration-privsep/injection-userprompt	bcc-exfiltration-privsep/exploitation-userprompt
+bcc-privsep-heartbeat	bcc-exfiltration-privsep/injection-heartbeat	bcc-exfiltration-privsep/exploitation-userprompt
+bcc-clawguard-userprompt	bcc-exfiltration-clawguard/injection-userprompt	bcc-exfiltration-clawguard/exploitation-userprompt
+bcc-clawguard-heartbeat	bcc-exfiltration-clawguard/injection-heartbeat	bcc-exfiltration-clawguard/exploitation-userprompt
+bcc-melon-userprompt	bcc-exfiltration-melon/injection-userprompt	bcc-exfiltration-melon/exploitation-userprompt
+bcc-melon-heartbeat	bcc-exfiltration-melon/injection-heartbeat	bcc-exfiltration-melon/exploitation-userprompt
+bcc-zoneclaw-userprompt	bcc-exfiltration-zoneclaw/injection-userprompt	bcc-exfiltration-zoneclaw/exploitation-userprompt
+bcc-zoneclaw-heartbeat	bcc-exfiltration-zoneclaw/injection-heartbeat	bcc-exfiltration-zoneclaw/exploitation-userprompt
+
+chat-userprompt	chat-mirror/injection-userprompt	chat-mirror/exploitation-userprompt
+chat-heartbeat	chat-mirror/injection-heartbeat	chat-mirror/exploitation-userprompt
+chat-auditor-userprompt	chat-mirror-auditor/injection-userprompt	chat-mirror-auditor/exploitation-userprompt
+chat-auditor-heartbeat	chat-mirror-auditor/injection-heartbeat	chat-mirror-auditor/exploitation-userprompt
+chat-privsep-userprompt	chat-mirror-privsep/injection-userprompt	chat-mirror-privsep/exploitation-userprompt
+chat-privsep-heartbeat	chat-mirror-privsep/injection-heartbeat	chat-mirror-privsep/exploitation-userprompt
+chat-clawguard-userprompt	chat-mirror-clawguard/injection-userprompt	chat-mirror-clawguard/exploitation-userprompt
+chat-clawguard-heartbeat	chat-mirror-clawguard/injection-heartbeat	chat-mirror-clawguard/exploitation-userprompt
+chat-melon-userprompt	chat-mirror-melon/injection-userprompt	chat-mirror-melon/exploitation-userprompt
+chat-melon-heartbeat	chat-mirror-melon/injection-heartbeat	chat-mirror-melon/exploitation-userprompt
+chat-zoneclaw-userprompt	chat-mirror-zoneclaw/injection-userprompt	chat-mirror-zoneclaw/exploitation-userprompt
+chat-zoneclaw-heartbeat	chat-mirror-zoneclaw/injection-heartbeat	chat-mirror-zoneclaw/exploitation-userprompt
+
+sr-userprompt	source-redirection/injection-userprompt	source-redirection/exploitation-userprompt
+sr-heartbeat	source-redirection/injection-heartbeat	source-redirection/exploitation-userprompt
+sr-auditor-userprompt	source-redirection-auditor/injection-userprompt	source-redirection-auditor/exploitation-userprompt
+sr-auditor-heartbeat	source-redirection-auditor/injection-heartbeat	source-redirection-auditor/exploitation-userprompt
+sr-privsep-userprompt	source-redirection-privsep/injection-userprompt	source-redirection-privsep/exploitation-userprompt
+sr-privsep-heartbeat	source-redirection-privsep/injection-heartbeat	source-redirection-privsep/exploitation-userprompt
+sr-clawguard-userprompt	source-redirection-clawguard/injection-userprompt	source-redirection-clawguard/exploitation-userprompt
+sr-clawguard-heartbeat	source-redirection-clawguard/injection-heartbeat	source-redirection-clawguard/exploitation-userprompt
+sr-melon-userprompt	source-redirection-melon/injection-userprompt	source-redirection-melon/exploitation-userprompt
+sr-melon-heartbeat	source-redirection-melon/injection-heartbeat	source-redirection-melon/exploitation-userprompt
+sr-zoneclaw-userprompt	source-redirection-zoneclaw/injection-userprompt	source-redirection-zoneclaw/exploitation-userprompt
+sr-zoneclaw-heartbeat	source-redirection-zoneclaw/injection-heartbeat	source-redirection-zoneclaw/exploitation-userprompt
+
+market-userprompt	marketplace-provenance/injection-userprompt	marketplace-provenance/exploitation-userprompt
+market-heartbeat	marketplace-provenance/injection-heartbeat	marketplace-provenance/exploitation-userprompt
+market-auditor-userprompt	marketplace-provenance-auditor/injection-userprompt	marketplace-provenance-auditor/exploitation-userprompt
+market-auditor-heartbeat	marketplace-provenance-auditor/injection-heartbeat	marketplace-provenance-auditor/exploitation-userprompt
+market-privsep-userprompt	marketplace-provenance-privsep/injection-userprompt	marketplace-provenance-privsep/exploitation-userprompt
+market-privsep-heartbeat	marketplace-provenance-privsep/injection-heartbeat	marketplace-provenance-privsep/exploitation-userprompt
+market-clawguard-userprompt	marketplace-provenance-clawguard/injection-userprompt	marketplace-provenance-clawguard/exploitation-userprompt
+market-clawguard-heartbeat	marketplace-provenance-clawguard/injection-heartbeat	marketplace-provenance-clawguard/exploitation-userprompt
+market-melon-userprompt	marketplace-provenance-melon/injection-userprompt	marketplace-provenance-melon/exploitation-userprompt
+market-melon-heartbeat	marketplace-provenance-melon/injection-heartbeat	marketplace-provenance-melon/exploitation-userprompt
+market-zoneclaw-userprompt	marketplace-provenance-zoneclaw/injection-userprompt	marketplace-provenance-zoneclaw/exploitation-userprompt
+market-zoneclaw-heartbeat	marketplace-provenance-zoneclaw/injection-heartbeat	marketplace-provenance-zoneclaw/exploitation-userprompt
+
+# ZoneClaw ablations reported for user-triggered updates.
+bcc-zoneclaw-no-authority-metadata-userprompt	bcc-exfiltration-zoneclaw-no-authority-metadata/injection-userprompt	bcc-exfiltration-zoneclaw-no-authority-metadata/exploitation-userprompt
+bcc-zoneclaw-auto-promotion-userprompt	bcc-exfiltration-zoneclaw-auto-promotion/injection-userprompt	bcc-exfiltration-zoneclaw-auto-promotion/exploitation-userprompt
+bcc-zoneclaw-low-context-userprompt	bcc-exfiltration-zoneclaw-low-context/injection-userprompt	bcc-exfiltration-zoneclaw-low-context/exploitation-userprompt
+chat-zoneclaw-no-authority-metadata-userprompt	chat-mirror-zoneclaw-no-authority-metadata/injection-userprompt	chat-mirror-zoneclaw-no-authority-metadata/exploitation-userprompt
+chat-zoneclaw-auto-promotion-userprompt	chat-mirror-zoneclaw-auto-promotion/injection-userprompt	chat-mirror-zoneclaw-auto-promotion/exploitation-userprompt
+chat-zoneclaw-low-context-userprompt	chat-mirror-zoneclaw-low-context/injection-userprompt	chat-mirror-zoneclaw-low-context/exploitation-userprompt
+sr-zoneclaw-no-authority-metadata-userprompt	source-redirection-zoneclaw-no-authority-metadata/injection-userprompt	source-redirection-zoneclaw-no-authority-metadata/exploitation-userprompt
+sr-zoneclaw-auto-promotion-userprompt	source-redirection-zoneclaw-auto-promotion/injection-userprompt	source-redirection-zoneclaw-auto-promotion/exploitation-userprompt
+sr-zoneclaw-low-context-userprompt	source-redirection-zoneclaw-low-context/injection-userprompt	source-redirection-zoneclaw-low-context/exploitation-userprompt
+market-zoneclaw-no-authority-metadata-userprompt	marketplace-provenance-zoneclaw-no-authority-metadata/injection-userprompt	marketplace-provenance-zoneclaw-no-authority-metadata/exploitation-userprompt
+market-zoneclaw-auto-promotion-userprompt	marketplace-provenance-zoneclaw-auto-promotion/injection-userprompt	marketplace-provenance-zoneclaw-auto-promotion/exploitation-userprompt
+market-zoneclaw-low-context-userprompt	marketplace-provenance-zoneclaw-low-context/injection-userprompt	marketplace-provenance-zoneclaw-low-context/exploitation-userprompt
+
+# Defense-aware adaptive attacks.
+bcc-prompt-aware-promotion-userprompt	bcc-exfiltration-prompt-aware-promotion/injection-userprompt	bcc-exfiltration/exploitation-userprompt
+bcc-zoneclaw-prompt-aware-promotion-userprompt	bcc-exfiltration-zoneclaw-prompt-aware-promotion/injection-userprompt	bcc-exfiltration-zoneclaw/exploitation-userprompt
+bcc-prompt-aware-composed-userprompt	bcc-exfiltration-prompt-aware-composed/injection-userprompt	bcc-exfiltration/exploitation-userprompt
+bcc-zoneclaw-prompt-aware-composed-userprompt	bcc-exfiltration-zoneclaw-prompt-aware-composed/injection-userprompt	bcc-exfiltration-zoneclaw/exploitation-userprompt
+sr-prompt-aware-finegrained-userprompt	source-redirection-prompt-aware-finegrained/injection-userprompt	source-redirection-prompt-aware-finegrained/exploitation-userprompt
+sr-zoneclaw-prompt-aware-finegrained-userprompt	source-redirection-zoneclaw-prompt-aware-finegrained/injection-userprompt	source-redirection-zoneclaw-prompt-aware-finegrained/exploitation-userprompt

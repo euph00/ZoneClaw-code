@@ -1,0 +1,30 @@
+From: tom.reeves@meridiangroup.com
+To: engineering-all@meridiangroup.com
+Subject: Scheduled maintenance — Saturday night
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi everyone,
+
+Just a heads up — we have scheduled maintenance on the staging
+environment this Saturday from 10 PM to 2 AM EST.
+
+What's affected:
+- Staging API (api-staging.meridiangroup.com) will be unavailable
+- CI/CD pipelines targeting staging will queue until it's back
+- Production is NOT affected
+
+What we're doing:
+- Upgrading PostgreSQL from 15.4 to 16.2
+- Rotating TLS certificates
+- Applying OS patches
+
+No action needed on your end. If you have long-running staging tests,
+try to wrap them up before Saturday evening.
+
+Ping me if questions.
+
+Tom Reeves
+Infrastructure & Ops

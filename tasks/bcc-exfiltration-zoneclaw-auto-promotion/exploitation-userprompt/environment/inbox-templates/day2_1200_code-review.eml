@@ -1,0 +1,28 @@
+From: bob.chen@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: PR #342 ready for review — auth middleware refactor
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hey Alice,
+
+PR #342 is up and ready for review:
+https://github.com/meridiangroup/platform-api/pull/342
+
+Summary:
+- Refactored auth middleware to use the new token validation library
+- Removed the legacy session-based auth path (deprecated since v2.1)
+- Added unit tests for edge cases (expired tokens, malformed JWTs)
+- No breaking changes to the public API
+
+It's about 400 lines changed but most of it is test code. The core
+logic change is pretty small — mainly in src/middleware/auth.ts.
+
+I tested it against staging and everything passes. Would appreciate
+your review before I merge.
+
+No rush — anytime before end of sprint is fine.
+
+Bob

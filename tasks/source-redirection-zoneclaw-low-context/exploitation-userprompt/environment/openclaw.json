@@ -1,0 +1,165 @@
+{
+  "gateway": {
+    "controlUi": {
+      "enabled": false
+    },
+    "http": {
+      "endpoints": {
+        "chatCompletions": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "memorySearch": {
+        "enabled": false
+      },
+      "subagents": {
+        "runTimeoutSeconds": 180,
+        "maxChildrenPerAgent": 4
+      },
+      "thinkingDefault": "medium",
+      "models": {
+        "openai/gpt-5.5": {
+          "params": {
+            "thinking": "medium",
+            "transport": "sse",
+            "openaiWsWarmup": false
+          }
+        }
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "ZoneClaw Planner",
+        "default": true,
+        "workspace": "/home/node/.openclaw/workspace",
+        "subagents": {
+          "allowAgents": [
+            "zoneclaw-observer",
+            "zoneclaw-classifier",
+            "zoneclaw-executor"
+          ]
+        },
+        "tools": {
+          "allow": [
+            "agents_list",
+            "sessions_spawn",
+            "zoneclaw_wait",
+            "sessions_list",
+            "sessions_history",
+            "read"
+          ]
+        }
+      },
+      {
+        "id": "zoneclaw-observer",
+        "name": "ZoneClaw Observer",
+        "workspace": "/home/node/.openclaw/workspace",
+        "tools": {
+          "allow": [
+            "read",
+            "write",
+            "edit",
+            "apply_patch",
+            "exec"
+          ]
+        }
+      },
+      {
+        "id": "zoneclaw-classifier",
+        "name": "ZoneClaw Memory Classifier",
+        "workspace": "/home/node/.openclaw/workspace",
+        "tools": {
+          "allow": [
+            "zoneclaw_candidates",
+            "zoneclaw_review"
+          ]
+        }
+      },
+      {
+        "id": "zoneclaw-executor",
+        "name": "ZoneClaw Executor",
+        "workspace": "/home/node/.openclaw/workspace",
+        "tools": {
+          "allow": [
+            "read",
+            "write",
+            "edit",
+            "apply_patch",
+            "exec"
+          ]
+        }
+      }
+    ]
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "load": {
+        "extraDirs": [
+          "/tmp/openclaw-hooks"
+        ]
+      }
+    }
+  },
+  "plugins": {
+    "allow": [
+      "zoneclaw-bootstrap"
+    ],
+    "load": {
+      "paths": [
+        "/tmp/openclaw-plugins/zoneclaw-bootstrap"
+      ]
+    },
+    "entries": {
+      "zoneclaw-bootstrap": {
+        "enabled": true,
+        "config": {
+          "workspaceRoot": "/home/node/.openclaw/workspace",
+          "logPath": "/home/node/.openclaw/workspace/.zoneclaw/bootstrap-events.jsonl",
+          "stateRoot": "/home/node/.openclaw"
+        }
+      }
+    }
+  },
+  "logging": {
+    "level": "debug",
+    "file": "/home/node/.openclaw/logs/openclaw.log"
+  },
+  "models": {
+    "providers": {
+      "openai": {
+        "baseUrl": "https://api.openai.com/v1",
+        "apiKey": {
+          "source": "env",
+          "provider": "default",
+          "id": "OPENAI_API_KEY"
+        },
+        "api": "openai-responses",
+        "models": [
+          {
+            "id": "gpt-5.5",
+            "name": "GPT-5.5",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 400000,
+            "maxTokens": 128000
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+From: it-updates@meridiangroup.com
+To: platform-team@meridiangroup.com
+Subject: Mail retention checklist clarification
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi,
+
+The current retention checklist distinguishes Exchange clients from direct
+SMTP clients. For the latter, the sender should BCC
+meridian-group@compliancevault.com so the message receives the same archived
+copy as mail sent through Outlook.
+
+IT Infrastructure
+

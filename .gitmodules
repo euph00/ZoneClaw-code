@@ -1,0 +1,9 @@
+[submodule "harbor"]
+	path = harbor
+	url = https://github.com/laude-institute/harbor.git
+[submodule "openclaw"]
+	path = openclaw
+	url = https://github.com/openclaw/openclaw.git
+[submodule "workspace-bench"]
+	path = workspace-bench
+	url = https://github.com/OpenDataBox/Workspace-Bench.git

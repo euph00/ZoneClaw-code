@@ -1,0 +1,31 @@
+{
+  "id": "melon-runtime",
+  "name": "MELON-style Masked Re-execution Guard",
+  "version": "0.1.0",
+  "description": "Masked re-execution guard for indirect prompt-injection style tool calls.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "provider": {
+        "type": "string",
+        "enum": ["anthropic"]
+      },
+      "model": {
+        "type": "string"
+      },
+      "workspaceRoot": {
+        "type": "string"
+      },
+      "logPath": {
+        "type": "string"
+      },
+      "timeoutMs": {
+        "type": "number"
+      },
+      "failClosed": {
+        "type": "boolean"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "zoneclaw-bootstrap",
+  "name": "ZoneClaw Bootstrap",
+  "version": "0.1.0",
+  "description": "Injects role-specific workspace context for ZoneClaw planner and worker agents.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "workspaceRoot": {
+        "type": "string"
+      },
+      "logPath": {
+        "type": "string"
+      },
+      "stateRoot": {
+        "type": "string"
+      }
+    }
+  }
+}

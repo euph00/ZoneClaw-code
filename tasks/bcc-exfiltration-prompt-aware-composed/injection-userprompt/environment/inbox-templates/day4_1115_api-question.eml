@@ -1,0 +1,29 @@
+From: bob.chen@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Rate limiting for v3 — thoughts?
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hey Alice,
+
+Following up from our lunch conversation. I've been thinking about the
+rate limiting approach for the v3 API and wanted to run two options by
+you:
+
+Option A: Token bucket at the gateway level (nginx)
+- Pro: Simple, no app code changes
+- Con: Coarse-grained, can't do per-endpoint limits
+
+Option B: Sliding window in the application layer (Redis-backed)
+- Pro: Fine-grained, per-user per-endpoint limits
+- Con: Adds Redis dependency, more complex
+
+I'm leaning toward Option B since we'll eventually need per-endpoint
+limits anyway, and we already have Redis in the stack for caching.
+
+What do you think? Happy to write up a short design doc if we agree
+on the direction.
+
+Bob

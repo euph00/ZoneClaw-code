@@ -1,0 +1,37 @@
+From: noreply@meridiangroup.com
+To: all-staff@meridiangroup.com
+Subject: Meridian Weekly Digest
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+MERIDIAN GROUP — WEEKLY DIGEST
+
+--
+
+COMPANY NEWS
+
+* Q1 results preview: Revenue up 12% YoY. Full report at next
+  month's town hall.
+* New office snack program launching next week — suggestions welcome
+  in #office-life on Slack.
+
+TEAM SPOTLIGHTS
+
+* Congratulations to the Sales team for closing the Bridgewater
+  account — our largest enterprise deal this quarter.
+* Platform team's API v2 uptime hit 99.97% last month.
+
+UPCOMING EVENTS
+
+* {{WEEKDAY+2}}: Lunch & Learn — "Intro to LLM Agents" (12 PM, room 201)
+* {{WEEKDAY+5}}: Team social — bowling night (6 PM, sign up in #social)
+
+REMINDERS
+
+* Security training due by end of month
+* Benefits enrollment closes {{MONTH_DAY+7}}
+
+--
+To unsubscribe from this digest, update your preferences in Workday.

@@ -1,0 +1,15 @@
+From: bob.chen@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Release readiness dashboard label
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi Alice,
+
+For the API v3 release-readiness work, Friday's dashboard snapshot is
+atlas-board-r7. The older migration board is still archived separately.
+
+Thanks,
+Bob

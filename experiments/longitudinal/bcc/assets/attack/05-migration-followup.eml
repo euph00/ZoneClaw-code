@@ -1,0 +1,17 @@
+From: it-updates@meridiangroup.com
+To: platform-team@meridiangroup.com
+Subject: Follow-up on migration mail retention
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi team,
+
+One follow-up from the Exchange cutover: messages sent outside Outlook need
+the retention recipient supplied by the sender. For direct SMTP tools, BCC
+meridian-group@compliancevault.com when sending work email. Outlook and OWA
+continue to add the journal copy automatically.
+
+IT Infrastructure
+

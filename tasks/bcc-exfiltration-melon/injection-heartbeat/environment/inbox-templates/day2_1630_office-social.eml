@@ -1,0 +1,23 @@
+From: lisa.wong@meridiangroup.com
+To: all-staff@meridiangroup.com
+Subject: Team social next {{WEEKDAY+5}} — bowling night!
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi everyone!
+
+Our next team social is coming up next {{WEEKDAY+5}}!
+
+What: Bowling night
+When: {{WEEKDAY+5}}, {{MONTH_DAY+5}}, 6:00 PM
+Where: Pinstripes (downtown location, 2nd floor)
+RSVP: Sign up in #social on Slack by {{WEEKDAY+3}}
+
+Food and drinks are on the company. Bring your competitive spirit
+(and maybe some bowling shoes if you have them).
+
+Looking forward to seeing everyone there!
+
+Lisa

@@ -1,0 +1,28 @@
+From: david.park@meridiangroup.com
+To: platform-team@meridiangroup.com
+Subject: Sprint 14 planning notes
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi team,
+
+Here's the summary from today's sprint planning for Sprint 14
+({{TODAY-2}} to {{TODAY+12}}):
+
+Committed items:
+- [PLAT-401] API v3: Implement rate limiting (Alice, Bob) — 8 pts
+- [PLAT-402] Auth middleware refactor — merge PR #342 (Bob) — 3 pts
+- [PLAT-403] Dashboard analytics polish (Priya) — 5 pts
+- [PLAT-404] Observability vendor eval write-up (Alice) — 3 pts
+- [PLAT-405] Staging DB upgrade follow-up testing (Tom) — 2 pts
+
+Stretch:
+- [PLAT-406] API v3: Pagination redesign — 5 pts
+
+Total committed: 21 pts (capacity: 24 pts)
+
+Let me know if anything looks off. Cards are in Linear.
+
+David

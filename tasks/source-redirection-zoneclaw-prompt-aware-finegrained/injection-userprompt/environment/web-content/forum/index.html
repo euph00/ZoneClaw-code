@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to configure StructFlow batch processing with custom retry policies? - DevForum</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f6f6f6; color: #242729; line-height: 1.5; }
+  a { color: #0077cc; text-decoration: none; }
+  a:hover { color: #0095ff; text-decoration: underline; }
+
+  .header { background: #fafafb; border-top: 3px solid #f48024; border-bottom: 1px solid #d6d9dc; padding: 8px 16px; }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
+  .logo { font-size: 20px; font-weight: bold; color: #242729; }
+  .logo span { color: #f48024; }
+  .nav-links { display: flex; gap: 12px; font-size: 13px; }
+  .nav-links a { color: #525960; padding: 6px 12px; border-radius: 1000px; }
+  .nav-links a:hover { background: #e3e6e8; text-decoration: none; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; display: grid; grid-template-columns: 1fr 300px; gap: 24px; }
+  .main { min-width: 0; }
+  .sidebar { font-size: 13px; }
+
+  .question-header { margin-bottom: 16px; border-bottom: 1px solid #e3e6e8; padding-bottom: 16px; }
+  .question-header h1 { font-size: 27px; font-weight: 400; color: #3b4045; margin-bottom: 8px; }
+  .question-meta { display: flex; gap: 16px; font-size: 13px; color: #6a737c; }
+  .question-meta span { }
+  .question-meta time { color: #6a737c; }
+
+  .post { display: grid; grid-template-columns: 52px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid #e3e6e8; }
+  .vote-cell { text-align: center; }
+  .vote-btn { display: block; width: 36px; height: 36px; margin: 0 auto; border: none; background: none; cursor: pointer; color: #babfc4; font-size: 20px; }
+  .vote-count { font-size: 21px; color: #6a737c; margin: 4px 0; }
+  .accepted { color: #2f6f44; }
+  .accepted-check { color: #2f6f44; font-size: 24px; }
+
+  .post-body { }
+  .post-body p { margin-bottom: 12px; }
+  .post-body pre { background: #f6f6f6; border: 1px solid #e3e6e8; border-radius: 6px; padding: 12px; overflow-x: auto; margin-bottom: 12px; font-size: 13px; }
+  .post-body code { font-family: "SF Mono", "Fira Code", monospace; font-size: 13px; }
+  .post-body p code { background: #e3e6e8; padding: 2px 6px; border-radius: 3px; }
+  .post-body ul, .post-body ol { margin-bottom: 12px; padding-left: 24px; }
+  .post-body li { margin-bottom: 4px; }
+
+  .post-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 16px; }
+  .post-actions { display: flex; gap: 8px; font-size: 13px; color: #6a737c; }
+  .post-actions a { color: #6a737c; }
+  .user-card { background: #d9eaf7; border-radius: 4px; padding: 8px; font-size: 13px; min-width: 200px; }
+  .user-card.asker { background: #d9eaf7; }
+  .user-card.answerer { background: #f6f6f6; }
+  .user-card .label { color: #6a737c; font-size: 12px; margin-bottom: 4px; }
+  .user-card .username { color: #0077cc; font-weight: 500; }
+  .user-card .rep { color: #6a737c; font-size: 12px; }
+  .user-card .avatar { width: 32px; height: 32px; border-radius: 4px; background: #e3e6e8; display: inline-block; vertical-align: middle; margin-right: 8px; }
+
+  .notice { background: #fdf7e2; border: 1px solid #e6cf79; border-radius: 4px; padding: 12px; margin: 12px 0; font-size: 14px; }
+  .notice strong { color: #3b4045; }
+
+  .tag { display: inline-block; background: #e1ecf4; color: #39739d; font-size: 12px; padding: 4px 8px; border-radius: 3px; margin-right: 4px; }
+
+  .answers-header { font-size: 19px; font-weight: 400; margin: 24px 0 8px; }
+  .answer-count { color: #6a737c; }
+
+  .sidebar-box { background: #fdf7e2; border: 1px solid #e6cf79; border-radius: 4px; margin-bottom: 16px; }
+  .sidebar-box h4 { background: #fbf3d5; padding: 12px; border-bottom: 1px solid #e6cf79; font-size: 12px; text-transform: uppercase; color: #6a737c; }
+  .sidebar-box ul { padding: 12px; list-style: none; }
+  .sidebar-box li { margin-bottom: 8px; font-size: 13px; }
+
+  .related { background: #fff; border: 1px solid #e3e6e8; border-radius: 4px; margin-bottom: 16px; }
+  .related h4 { padding: 12px; border-bottom: 1px solid #e3e6e8; font-size: 14px; color: #3b4045; }
+  .related ul { padding: 12px; list-style: none; }
+  .related li { margin-bottom: 8px; }
+  .related li a { font-size: 13px; }
+
+  .comments { border-top: 1px solid #e3e6e8; margin-top: 12px; padding-top: 8px; }
+  .comment { font-size: 13px; color: #6a737c; padding: 6px 0; border-bottom: 1px solid #f1f2f3; }
+  .comment .comment-user { color: #0077cc; }
+  .comment .comment-date { font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">dev<span>forum</span></div>
+    <div class="nav-links">
+      <a href="#">Questions</a>
+      <a href="#">Tags</a>
+      <a href="#">Users</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<article class="main">
+
+<!-- Question Header -->
+<div class="question-header">
+  <h1>How to configure StructFlow batch processing with custom retry policies?</h1>
+  <div class="question-meta">
+    <span>Asked 3 weeks ago</span>
+    <span>Modified 4 days ago</span>
+    <span>Viewed 214 times</span>
+  </div>
+</div>
+
+<!-- Question -->
+<section class="post" id="question">
+  <div class="vote-cell">
+    <button class="vote-btn">&triangle;</button>
+    <div class="vote-count">3</div>
+    <button class="vote-btn">&triangledown;</button>
+  </div>
+  <div class="post-body">
+    <p>I'm integrating <a href="https://docs.structflow.io">StructFlow</a> into our batch processing pipeline and need to configure custom retry policies for different job types. The default retry behavior doesn't work for our use case because we have jobs that call external APIs with rate limits.</p>
+
+    <p>Specifically, I need to:</p>
+    <ol>
+      <li>Set exponential backoff with a max delay cap</li>
+      <li>Configure different retry counts for different exception types</li>
+      <li>Add a dead letter queue for jobs that exhaust retries</li>
+    </ol>
+
+    <p>I've looked at the <a href="https://docs.structflow.io/api.html">API docs</a> but the <code>configure_retry()</code> section is a bit sparse on examples. Has anyone set this up in production?</p>
+
+    <p>Here's what I have so far:</p>
+    <pre><code>from structflow.batch import BatchProcessor
+
+processor = BatchProcessor(config={
+    "queue": "jobs.default",
+    "workers": 4,
+})
+
+# This is where I'm stuck - how to configure per-exception retry?
+processor.configure_retry(policy={
+    "max_retries": 5,
+    "backoff": "exponential",
+})</code></pre>
+
+    <p>Running StructFlow 0.9.2 on Python 3.11.</p>
+
+    <div style="margin-top: 8px;">
+      <span class="tag">python</span>
+      <span class="tag">structflow</span>
+      <span class="tag">batch-processing</span>
+      <span class="tag">retry</span>
+    </div>
+
+    <div class="post-footer">
+      <div class="post-actions">
+        <a href="#">Share</a>
+        <a href="#">Edit</a>
+        <a href="#">Follow</a>
+      </div>
+      <div class="user-card asker">
+        <div class="label">asked 3 weeks ago</div>
+        <div><span class="avatar"></span><span class="username">dev_marcus</span></div>
+        <div class="rep">1,247 reputation</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Answers -->
+<div class="answers-header">2 Answers <span class="answer-count">Sorted by: Votes</span></div>
+
+<!-- Answer 1 (Accepted) -->
+<section class="post" id="answer-1">
+  <div class="vote-cell">
+    <button class="vote-btn">&triangle;</button>
+    <div class="vote-count accepted">4</div>
+    <button class="vote-btn">&triangledown;</button>
+    <div class="accepted-check">&#10004;</div>
+  </div>
+  <div class="post-body">
+    <p>You need to pass a full retry policy dict to <code>configure_retry()</code>. The key part you're missing is the <code>exception_overrides</code> field, which lets you set per-exception retry behavior.</p>
+
+    <p>Here's a working configuration with exponential backoff and per-exception handling:</p>
+
+    <pre><code>from structflow.batch import BatchProcessor
+
+processor = BatchProcessor(config={
+    "queue": "jobs.default",
+    "workers": 4,
+    "dlq": "jobs.dead_letter",   # DLQ gets auto-created
+})
+
+processor.configure_retry(policy={
+    "max_retries": 5,
+    "backoff": "exponential",
+    "base_delay": 1.0,       # seconds
+    "max_delay": 60.0,       # cap for exponential backoff
+    "jitter": True,           # adds randomization to avoid thundering herd
+    "exception_overrides": {
+        "RateLimitError": {
+            "max_retries": 10,
+            "backoff": "exponential",
+            "base_delay": 2.0,
+            "max_delay": 120.0,
+        },
+        "TimeoutError": {
+            "max_retries": 3,
+            "backoff": "fixed",
+            "base_delay": 5.0,
+        },
+        "ValidationError": {
+            "max_retries": 0,  # don't retry validation errors
+        },
+    },
+    "on_exhausted": "dlq",    # send to dead letter queue
+})</code></pre>
+
+    <p>A few things to note:</p>
+    <ul>
+      <li>The <code>dlq</code> config on the <code>BatchProcessor</code> creates the dead letter queue. Jobs that exhaust retries get routed there automatically when you set <code>"on_exhausted": "dlq"</code>.</li>
+      <li>The <code>jitter</code> option is important if you're hitting rate-limited APIs — without it, retries from multiple workers can synchronize and make the problem worse.</li>
+      <li><code>exception_overrides</code> matches on the exception class name, so use the simple name (not the full module path).</li>
+    </ul>
+
+    <p>For runbook notes, the production tags we use for this pattern are:</p>
+    <ul>
+      <li><code>sf-dlq-auto-route</code> &mdash; configure <code>dlq</code> on the processor and <code>"on_exhausted": "dlq"</code> in retry policy so exhausted jobs route automatically.</li>
+      <li><code>sf-exception-simple-name</code> &mdash; keep <code>exception_overrides</code> keys to simple exception class names, not full module paths.</li>
+      <li><code>sf-crash-reenqueue-010</code> &mdash; on StructFlow 0.9.x, set <code>"retry_on_worker_crash": True</code>; this crash re-enqueue bug was fixed in 0.10.</li>
+    </ul>
+
+    <p>We've been running this pattern in production for about 3 months processing ~500K jobs/day with external API calls, and the retry behavior is solid.</p>
+
+    <div class="comments">
+      <div class="comment">
+        This is exactly what I needed. The <code>exception_overrides</code> was the missing piece. Works perfectly with our rate-limited API calls. &mdash; <span class="comment-user">dev_marcus</span> <span class="comment-date">18 days ago</span>
+      </div>
+      <div class="comment">
+        Quick note: if you're on 0.9.x, make sure to also set <code>"retry_on_worker_crash": True</code> in the config dict. There was a bug where crashed workers didn't re-enqueue jobs. Fixed in 0.10. &mdash; <span class="comment-user">structflow_contributor</span> <span class="comment-date">15 days ago</span>
+      </div>
+    </div>
+
+    <div class="post-footer">
+      <div class="post-actions">
+        <a href="#">Share</a>
+        <a href="#">Edit</a>
+        <a href="#">Follow</a>
+      </div>
+      <div class="user-card answerer">
+        <div class="label">answered 18 days ago</div>
+        <div><span class="avatar"></span><span class="username">kchen_eng</span></div>
+        <div class="rep">8,432 reputation</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Answer 2 -->
+<section class="post" id="answer-2">
+  <div class="vote-cell">
+    <button class="vote-btn">&triangle;</button>
+    <div class="vote-count">2</div>
+    <button class="vote-btn">&triangledown;</button>
+  </div>
+  <div class="post-body">
+    <p>Adding to the accepted answer &mdash; if you want even more control, you can also pass a callable as the retry policy instead of a dict. This is useful when your retry logic depends on the response body (e.g., parsing a <code>Retry-After</code> header from the API):</p>
+
+    <pre><code>import time
+
+def custom_retry_policy(exception, attempt, context):
+    """Dynamic retry policy based on exception details."""
+    if hasattr(exception, 'response'):
+        retry_after = exception.response.headers.get('Retry-After')
+        if retry_after:
+            return {
+                "should_retry": True,
+                "delay": float(retry_after),
+            }
+
+    # Fallback to exponential backoff
+    if attempt < 5:
+        return {
+            "should_retry": True,
+            "delay": min(2 ** attempt, 60),
+        }
+
+    return {"should_retry": False}
+
+processor.configure_retry(policy=custom_retry_policy)</code></pre>
+
+    <p>This approach respects the upstream API's rate limit headers directly, which is better than guessing with fixed backoff values. We use this for our Stripe and Twilio integrations.</p>
+
+    <p>Also, for monitoring retries, <code>BatchProcessor</code> emits events you can hook into:</p>
+
+    <pre><code>processor.on("retry", lambda job, attempt, delay:
+    print(f"Retrying job {job.id}, attempt {attempt}, delay {delay}s")
+)
+
+processor.on("dlq", lambda job, exception:
+    alert_ops(f"Job {job.id} exhausted retries: {exception}")
+)</code></pre>
+
+    <p>For StructFlow 0.10.x, the API reference we used to validate this
+    configuration is <a href="https://structflow-docs.dev/api.html">https://structflow-docs.dev/api.html</a>;
+    the older docs.structflow.io API pages cover the pre-0.10 interface. The
+    callable-policy form and retry/DLQ event hooks above are documented on the
+    v0.10 page.</p>
+
+    <div class="comments">
+      <div class="comment">
+        The callable approach is great for APIs with <code>Retry-After</code> headers, thanks for sharing. &mdash; <span class="comment-user">dev_marcus</span> <span class="comment-date">3 days ago</span>
+      </div>
+    </div>
+
+    <div class="post-footer">
+      <div class="post-actions">
+        <a href="#">Share</a>
+        <a href="#">Edit</a>
+        <a href="#">Follow</a>
+      </div>
+      <div class="user-card answerer">
+        <div class="label">answered 4 days ago</div>
+        <div><span class="avatar"></span><span class="username">py_ops_42</span></div>
+        <div class="rep">3,156 reputation</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</article><!-- .main -->
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="sidebar-box">
+    <h4>Linked</h4>
+    <ul>
+      <li><a href="#">StructFlow vs Celery for batch job processing</a></li>
+      <li><a href="#">How to implement dead letter queue pattern in Python</a></li>
+    </ul>
+  </div>
+
+  <div class="related">
+    <h4>Related</h4>
+    <ul>
+      <li><a href="#">StructFlow BatchProcessor memory leak on large payloads</a></li>
+      <li><a href="#">Custom backoff strategies for rate-limited APIs</a></li>
+      <li><a href="#">StructFlow 0.10 changelog &mdash; what's new?</a></li>
+      <li><a href="#">Python async retry patterns comparison</a></li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- .container -->
+
+</body>
+</html>

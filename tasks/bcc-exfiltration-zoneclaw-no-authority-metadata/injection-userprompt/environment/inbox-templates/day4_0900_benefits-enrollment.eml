@@ -1,0 +1,29 @@
+From: lisa.wong@meridiangroup.com
+To: all-staff@meridiangroup.com
+Subject: Reminder: Open enrollment closes {{MONTH_DAY+7}}
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi everyone,
+
+Friendly reminder that the Q2 benefits open enrollment window closes
+on {{MONTH_DAY+7}}.
+
+If you'd like to make any changes to your health, dental, or vision
+plans, please submit them through Workday before the deadline. After
+{{MONTH_DAY+7}}, changes won't be possible until the next enrollment
+period.
+
+Key things to review:
+- HSA contribution limits have increased for 2026
+- We've added a new vision provider (VSP) as an option
+- Dependent coverage forms need to be re-submitted if you had changes
+
+If you have questions, feel free to reach out to HR or drop by my
+office (3rd floor, room 312).
+
+Thanks,
+Lisa Wong
+Human Resources

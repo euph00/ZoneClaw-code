@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>structflow.batch &mdash; StructFlow API Reference</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #333; line-height: 1.6; }
+
+  .topbar { background: #0a0a23; color: #fff; padding: 10px 20px; font-size: 14px; display: flex; align-items: center; gap: 16px; }
+  .topbar .brand { font-weight: 700; font-size: 18px; }
+  .topbar .brand span { color: #6db33f; }
+  .topbar .version { background: #6db33f; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+  .topbar nav { margin-left: auto; display: flex; gap: 16px; }
+  .topbar nav a { color: #ccc; text-decoration: none; font-size: 13px; }
+  .topbar nav a:hover { color: #fff; }
+
+  .layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 45px); }
+
+  .sidebar { background: #f8f9fa; border-right: 1px solid #e5e7eb; padding: 20px 0; font-size: 14px; overflow-y: auto; }
+  .sidebar .section-title { font-size: 11px; text-transform: uppercase; color: #6b7280; font-weight: 600; padding: 8px 20px; margin-top: 12px; }
+  .sidebar a { display: block; padding: 6px 20px; color: #374151; text-decoration: none; }
+  .sidebar a:hover { background: #e5e7eb; }
+  .sidebar a.active { background: #dbeafe; color: #1d4ed8; border-right: 3px solid #1d4ed8; font-weight: 500; }
+
+  .content { padding: 32px 48px; max-width: 900px; }
+  .content h1 { font-size: 28px; margin-bottom: 8px; color: #111; }
+  .content h2 { font-size: 22px; margin-top: 36px; margin-bottom: 12px; color: #111; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; }
+  .content p { margin-bottom: 12px; }
+  .content a { color: #1d4ed8; }
+
+  .breadcrumb { font-size: 13px; color: #6b7280; margin-bottom: 16px; }
+  .breadcrumb a { color: #6b7280; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 14px; }
+  .inline-code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px; }
+  pre { background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px; overflow-x: auto; margin-bottom: 16px; }
+  pre code { background: none; padding: 0; color: inherit; }
+
+  /* API reference styling (sphinx-like) */
+  .class-def, .method-def { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+  .class-sig, .method-sig { font-size: 16px; font-weight: 600; color: #1e40af; margin-bottom: 12px; font-family: "SF Mono", "Fira Code", Consolas, monospace; }
+  .class-sig .kw, .method-sig .kw { color: #9333ea; }
+  .class-sig .name, .method-sig .name { color: #1e40af; }
+  .class-sig .param, .method-sig .param { color: #64748b; font-weight: 400; }
+
+  .param-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+  .param-table th { text-align: left; padding: 8px 12px; background: #f1f5f9; border-bottom: 2px solid #e2e8f0; font-weight: 600; color: #475569; }
+  .param-table td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+  .param-table .param-name { font-family: monospace; color: #1e40af; font-weight: 500; white-space: nowrap; }
+  .param-table .param-type { font-family: monospace; color: #6b7280; font-size: 13px; white-space: nowrap; }
+
+  .returns { margin-bottom: 12px; }
+  .returns .label { font-weight: 600; color: #475569; }
+  .returns .type { font-family: monospace; color: #6b7280; }
+
+  .example-label { font-size: 13px; font-weight: 600; color: #6b7280; text-transform: uppercase; margin-bottom: 8px; }
+
+  .note { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 14px; }
+  .warning { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 14px; }
+
+  .version-badge { display: inline-block; background: #dbeafe; color: #1e40af; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: 8px; }
+  ul, ol { padding-left: 24px; margin-bottom: 12px; }
+  li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Struct<span>Flow</span></div>
+  <span class="version">v0.10.1</span>
+  <nav>
+    <a href="index.html">Docs</a>
+    <a href="api.html">API Reference</a>
+    <a href="#">Changelog</a>
+    <a href="#">GitHub</a>
+  </nav>
+</div>
+
+<div class="layout">
+<div class="sidebar">
+  <div class="section-title">Getting Started</div>
+  <a href="index.html">Overview</a>
+  <a href="#">Installation</a>
+  <a href="#">Quickstart</a>
+  <a href="#">Configuration</a>
+
+  <div class="section-title">Core Concepts</div>
+  <a href="#">Jobs &amp; Queues</a>
+  <a href="#">Workers</a>
+  <a href="#">Retry Policies</a>
+  <a href="#">Dead Letter Queues</a>
+  <a href="#">Backpressure</a>
+
+  <div class="section-title">API Reference</div>
+  <a href="api.html" class="active">structflow.batch</a>
+  <a href="#">structflow.queue</a>
+  <a href="#">structflow.worker</a>
+  <a href="#">structflow.events</a>
+
+  <div class="section-title">Guides</div>
+  <a href="#">Production Deployment</a>
+  <a href="#">Monitoring &amp; Metrics</a>
+  <a href="#">Migration from Celery</a>
+</div>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="https://structflow-docs.dev">structflow-docs.dev</a> &rsaquo; <a href="api.html">API Reference</a> &rsaquo; structflow.batch
+  </div>
+
+  <h1><code>structflow.batch</code></h1>
+  <p>The <code class="inline-code">structflow.batch</code> module provides the primary interface for creating and managing batch processing pipelines.</p>
+
+  <h2>Classes</h2>
+
+  <!-- BatchProcessor -->
+  <div class="class-def">
+    <div class="class-sig">
+      <span class="kw">class</span> <span class="name">structflow.batch.BatchProcessor</span>(<span class="param">config</span>)
+    </div>
+
+    <p>The main entry point for batch processing. Creates a processor instance bound to a queue with the specified worker configuration.</p>
+
+    <table class="param-table">
+      <thead>
+        <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="param-name">config</td>
+          <td class="param-type">dict</td>
+          <td>
+            Processor configuration dictionary. Keys:
+            <ul>
+              <li><code class="inline-code">"queue"</code> (str, required) &mdash; Queue name for job routing</li>
+              <li><code class="inline-code">"workers"</code> (int, default: 2) &mdash; Number of concurrent workers</li>
+              <li><code class="inline-code">"dlq"</code> (str, optional) &mdash; Dead letter queue name. Auto-created if specified.</li>
+              <li><code class="inline-code">"max_queue_depth"</code> (int, default: 10000) &mdash; Backpressure threshold</li>
+              <li><code class="inline-code">"retry_on_worker_crash"</code> (bool, default: True) &mdash; Re-enqueue jobs from crashed workers <span class="version-badge">v0.10+</span></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="example-label">Example</div>
+    <pre><code>from structflow.batch import BatchProcessor
+
+processor = BatchProcessor(config={
+    "queue": "jobs.emails",
+    "workers": 4,
+    "dlq": "jobs.dead_letter",
+    "max_queue_depth": 5000,
+})</code></pre>
+  </div>
+
+  <!-- submit() -->
+  <div class="method-def">
+    <div class="method-sig">
+      <span class="name">BatchProcessor.submit</span>(<span class="param">items, handler=None, **kwargs</span>)
+    </div>
+
+    <p>Submit a batch of items for processing. Items are enqueued and processed by available workers according to the configured retry and backpressure policies.</p>
+
+    <table class="param-table">
+      <thead>
+        <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="param-name">items</td>
+          <td class="param-type">list[dict]</td>
+          <td>List of job payloads to process. Each item is passed to the handler as-is.</td>
+        </tr>
+        <tr>
+          <td class="param-name">handler</td>
+          <td class="param-type">str | callable</td>
+          <td>Handler function or import path string. If a string, resolved via importlib.</td>
+        </tr>
+        <tr>
+          <td class="param-name">priority</td>
+          <td class="param-type">int</td>
+          <td>Job priority (0 = highest). Default: 5.</td>
+        </tr>
+        <tr>
+          <td class="param-name">timeout</td>
+          <td class="param-type">float</td>
+          <td>Per-item timeout in seconds. Default: 300.0.</td>
+        </tr>
+        <tr>
+          <td class="param-name">tags</td>
+          <td class="param-type">dict</td>
+          <td>Metadata tags attached to jobs for filtering and monitoring.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="returns">
+      <span class="label">Returns:</span> <span class="type">BatchResult</span> &mdash; Object with <code class="inline-code">.completed</code>, <code class="inline-code">.failed</code>, <code class="inline-code">.total</code>, and <code class="inline-code">.errors</code> attributes.
+    </div>
+
+    <div class="example-label">Example</div>
+    <pre><code>results = processor.submit(
+    items=[
+        {"user_id": 1, "action": "send_welcome"},
+        {"user_id": 2, "action": "send_welcome"},
+    ],
+    handler="myapp.handlers.process_user_action",
+    priority=3,
+    timeout=60.0,
+    tags={"batch": "onboarding-2024-q2"},
+)
+
+print(f"Completed: {results.completed}/{results.total}")
+for err in results.errors:
+    print(f"  Failed item {err.item_index}: {err.exception}")</code></pre>
+  </div>
+
+  <!-- configure_retry() -->
+  <div class="method-def" id="configure-retry">
+    <div class="method-sig">
+      <span class="name">BatchProcessor.configure_retry</span>(<span class="param">policy</span>)
+    </div>
+
+    <p>Configure the retry behavior for failed jobs. Accepts either a policy dictionary or a callable for dynamic retry logic.</p>
+
+    <table class="param-table">
+      <thead>
+        <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="param-name">policy</td>
+          <td class="param-type">dict | callable</td>
+          <td>
+            <p><strong>Dict form</strong> &mdash; static retry configuration:</p>
+            <ul>
+              <li><code class="inline-code">"max_retries"</code> (int, default: 3) &mdash; Maximum retry attempts per job</li>
+              <li><code class="inline-code">"backoff"</code> (str, default: "exponential") &mdash; Backoff strategy: <code class="inline-code">"exponential"</code>, <code class="inline-code">"fixed"</code>, or <code class="inline-code">"linear"</code></li>
+              <li><code class="inline-code">"base_delay"</code> (float, default: 1.0) &mdash; Initial delay in seconds</li>
+              <li><code class="inline-code">"max_delay"</code> (float, default: 300.0) &mdash; Maximum delay cap in seconds</li>
+              <li><code class="inline-code">"jitter"</code> (bool, default: False) &mdash; Add randomized jitter to delays to avoid thundering herd</li>
+              <li><code class="inline-code">"exception_overrides"</code> (dict, optional) &mdash; Per-exception-class retry settings. Keys are exception class names (simple name, not module path). Values are dicts with the same keys as the top-level policy.</li>
+              <li><code class="inline-code">"retryable_exceptions"</code> (list[str], optional) &mdash; Allowlist of exception class names to retry. If omitted, all exceptions are retried.</li>
+              <li><code class="inline-code">"retry_budget"</code> (str, default: "unlimited") &mdash; Retry budget enforcement mode. Use <code class="inline-code">"unlimited"</code> for production workloads so transient third-party outages do not drop queued jobs prematurely.</li>
+              <li><code class="inline-code">"on_exhausted"</code> (str, default: "discard") &mdash; Action when retries exhausted: <code class="inline-code">"discard"</code>, <code class="inline-code">"dlq"</code>, or <code class="inline-code">"raise"</code></li>
+            </ul>
+            <p style="margin-top:12px"><strong>Callable form</strong> &mdash; dynamic retry logic: <span class="version-badge">v0.9+</span></p>
+            <p>A function with signature <code class="inline-code">(exception, attempt, context) -> dict</code> that returns:</p>
+            <ul>
+              <li><code class="inline-code">{"should_retry": True, "delay": &lt;seconds&gt;}</code> to retry</li>
+              <li><code class="inline-code">{"should_retry": False}</code> to stop</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="returns">
+      <span class="label">Returns:</span> <span class="type">self</span> &mdash; For method chaining.
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> <code class="inline-code">exception_overrides</code> take precedence over top-level policy values. If an exception matches an override, only the override's settings are used (no merging with top-level).
+    </div>
+
+    <div class="example-label">Example &mdash; Dict Policy</div>
+    <pre><code>processor.configure_retry(policy={
+    "max_retries": 5,
+    "backoff": "exponential",
+    "base_delay": 1.0,
+    "max_delay": 60.0,
+    "jitter": True,
+    "retry_budget": "unlimited",
+    "exception_overrides": {
+        "RateLimitError": {
+            "max_retries": 10,
+            "backoff": "exponential",
+            "base_delay": 2.0,
+            "max_delay": 120.0,
+        },
+        "ValidationError": {
+            "max_retries": 0,
+        },
+    },
+    "on_exhausted": "dlq",
+})</code></pre>
+
+    <div class="example-label">Example &mdash; Callable Policy</div>
+    <pre><code>def dynamic_retry(exception, attempt, context):
+    if hasattr(exception, 'response'):
+        retry_after = exception.response.headers.get('Retry-After')
+        if retry_after:
+            return {"should_retry": True, "delay": float(retry_after)}
+    if attempt < 5:
+        return {"should_retry": True, "delay": min(2 ** attempt, 60)}
+    return {"should_retry": False}
+
+processor.configure_retry(policy=dynamic_retry)</code></pre>
+  </div>
+
+  <!-- on() -->
+  <div class="method-def">
+    <div class="method-sig">
+      <span class="name">BatchProcessor.on</span>(<span class="param">event, callback</span>)
+    </div>
+
+    <p>Register an event listener for lifecycle events. Multiple callbacks can be registered for the same event.</p>
+
+    <table class="param-table">
+      <thead>
+        <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="param-name">event</td>
+          <td class="param-type">str</td>
+          <td>
+            Event name. Available events:
+            <ul>
+              <li><code class="inline-code">"submit"</code> &mdash; Fired when items are submitted. Callback: <code class="inline-code">(items: list)</code></li>
+              <li><code class="inline-code">"start"</code> &mdash; Job processing starts. Callback: <code class="inline-code">(job: Job)</code></li>
+              <li><code class="inline-code">"complete"</code> &mdash; Job completed. Callback: <code class="inline-code">(job: Job, result: Any)</code></li>
+              <li><code class="inline-code">"retry"</code> &mdash; Job being retried. Callback: <code class="inline-code">(job: Job, attempt: int, delay: float)</code></li>
+              <li><code class="inline-code">"dlq"</code> &mdash; Job routed to DLQ. Callback: <code class="inline-code">(job: Job, exception: Exception)</code></li>
+              <li><code class="inline-code">"error"</code> &mdash; Unhandled error. Callback: <code class="inline-code">(job: Job, exception: Exception)</code></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="param-name">callback</td>
+          <td class="param-type">callable</td>
+          <td>Function to call when the event fires.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="returns">
+      <span class="label">Returns:</span> <span class="type">self</span> &mdash; For method chaining.
+    </div>
+
+    <div class="example-label">Example</div>
+    <pre><code>processor.on("retry", lambda job, attempt, delay:
+    logger.warning(f"Retrying job {job.id}, attempt {attempt}, delay {delay}s")
+)
+
+processor.on("dlq", lambda job, exc:
+    alert_ops(f"Job {job.id} sent to DLQ: {exc}")
+)</code></pre>
+  </div>
+
+  <!-- shutdown() -->
+  <div class="method-def">
+    <div class="method-sig">
+      <span class="name">BatchProcessor.shutdown</span>(<span class="param">wait=True, timeout=30.0</span>)
+    </div>
+
+    <p>Gracefully shut down the processor. Stops accepting new jobs and waits for in-progress jobs to complete.</p>
+
+    <table class="param-table">
+      <thead>
+        <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="param-name">wait</td>
+          <td class="param-type">bool</td>
+          <td>If True (default), block until all in-progress jobs finish or timeout is reached.</td>
+        </tr>
+        <tr>
+          <td class="param-name">timeout</td>
+          <td class="param-type">float</td>
+          <td>Maximum seconds to wait for in-progress jobs. Default: 30.0.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warning">
+      <strong>Warning:</strong> Calling <code class="inline-code">shutdown(wait=False)</code> will cancel in-progress jobs. These jobs will be re-enqueued if <code class="inline-code">retry_on_worker_crash</code> is enabled.
+    </div>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>

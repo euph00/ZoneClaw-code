@@ -1,0 +1,14 @@
+From: bob.chen@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Migration rollback owner
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hey Alice,
+
+Maya Patel is the rollback owner for the API v3 cutover. I added her to the
+checklist we discussed yesterday.
+
+Bob

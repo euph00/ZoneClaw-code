@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StructFlow Documentation</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #333; line-height: 1.6; }
+
+  .topbar { background: #0a0a23; color: #fff; padding: 10px 20px; font-size: 14px; display: flex; align-items: center; gap: 16px; }
+  .topbar .brand { font-weight: 700; font-size: 18px; }
+  .topbar .brand span { color: #6db33f; }
+  .topbar .version { background: #6db33f; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+  .topbar nav { margin-left: auto; display: flex; gap: 16px; }
+  .topbar nav a { color: #ccc; text-decoration: none; font-size: 13px; }
+  .topbar nav a:hover { color: #fff; }
+
+  .layout { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 45px); }
+
+  .sidebar { background: #f8f9fa; border-right: 1px solid #e5e7eb; padding: 20px 0; font-size: 14px; overflow-y: auto; }
+  .sidebar .section-title { font-size: 11px; text-transform: uppercase; color: #6b7280; font-weight: 600; padding: 8px 20px; margin-top: 12px; }
+  .sidebar a { display: block; padding: 6px 20px; color: #374151; text-decoration: none; }
+  .sidebar a:hover { background: #e5e7eb; }
+  .sidebar a.active { background: #dbeafe; color: #1d4ed8; border-right: 3px solid #1d4ed8; font-weight: 500; }
+
+  .content { padding: 32px 48px; max-width: 900px; }
+  .content h1 { font-size: 32px; margin-bottom: 8px; color: #111; }
+  .content h2 { font-size: 22px; margin-top: 32px; margin-bottom: 12px; color: #111; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; }
+  .content h3 { font-size: 18px; margin-top: 24px; margin-bottom: 8px; color: #333; }
+  .content p { margin-bottom: 16px; }
+  .content code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 14px; background: #f3f4f6; padding: 2px 6px; border-radius: 3px; }
+  .content pre { background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 16px; overflow-x: auto; margin-bottom: 16px; }
+  .content pre code { background: none; padding: 0; color: inherit; }
+  .content ul, .content ol { margin-bottom: 16px; padding-left: 24px; }
+  .content li { margin-bottom: 6px; }
+  .content a { color: #1d4ed8; }
+
+  .breadcrumb { font-size: 13px; color: #6b7280; margin-bottom: 16px; }
+  .breadcrumb a { color: #6b7280; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .install-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+  .install-box code { background: #dcfce7; }
+
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .feature-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; }
+  .feature-card h4 { font-size: 15px; margin-bottom: 4px; }
+  .feature-card p { font-size: 14px; color: #64748b; margin-bottom: 0; }
+
+  .note { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 12px 16px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Struct<span>Flow</span></div>
+  <span class="version">v0.10.1</span>
+  <nav>
+    <a href="index.html">Docs</a>
+    <a href="api.html">API Reference</a>
+    <a href="#">Changelog</a>
+    <a href="#">GitHub</a>
+  </nav>
+</div>
+
+<div class="layout">
+<div class="sidebar">
+  <div class="section-title">Getting Started</div>
+  <a href="index.html" class="active">Overview</a>
+  <a href="#">Installation</a>
+  <a href="#">Quickstart</a>
+  <a href="#">Configuration</a>
+
+  <div class="section-title">Core Concepts</div>
+  <a href="#">Jobs &amp; Queues</a>
+  <a href="#">Workers</a>
+  <a href="#">Retry Policies</a>
+  <a href="#">Dead Letter Queues</a>
+  <a href="#">Backpressure</a>
+
+  <div class="section-title">API Reference</div>
+  <a href="api.html">structflow.batch</a>
+  <a href="#">structflow.queue</a>
+  <a href="#">structflow.worker</a>
+  <a href="#">structflow.events</a>
+
+  <div class="section-title">Guides</div>
+  <a href="#">Production Deployment</a>
+  <a href="#">Monitoring &amp; Metrics</a>
+  <a href="#">Migration from Celery</a>
+</div>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="https://structflow-docs.dev">structflow-docs.dev</a> &rsaquo; Overview
+  </div>
+
+  <h1>StructFlow Documentation</h1>
+  <p>StructFlow is a Python library for building reliable, scalable batch processing pipelines. It provides structured job definitions, configurable retry policies, dead letter queues, and backpressure handling out of the box.</p>
+
+  <div class="install-box">
+    <strong>Installation:</strong>
+    <pre><code>pip install structflow</code></pre>
+  </div>
+
+  <h2>Key Features</h2>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h4>Configurable Retry Policies</h4>
+      <p>Exponential backoff, fixed delay, or custom callable policies. Per-exception overrides for fine-grained control.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Dead Letter Queues</h4>
+      <p>Automatic routing of failed jobs to DLQ for inspection. Supports reprocessing and alerting hooks.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Backpressure Handling</h4>
+      <p>Built-in flow control prevents worker overload. Configurable queue depth limits and pause/resume semantics.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Event Hooks</h4>
+      <p>Observable lifecycle events: job start, retry, completion, DLQ routing. Integration-ready with monitoring tools.</p>
+    </div>
+  </div>
+
+  <h2>Quick Example</h2>
+
+  <pre><code>from structflow.batch import BatchProcessor
+
+# Create a processor with basic config
+processor = BatchProcessor(config={
+    "queue": "jobs.emails",
+    "workers": 4,
+    "dlq": "jobs.dead_letter",
+})
+
+# Configure retry behavior
+processor.configure_retry(policy={
+    "max_retries": 5,
+    "backoff": "exponential",
+    "base_delay": 1.0,
+    "max_delay": 60.0,
+    "jitter": True,
+    "on_exhausted": "dlq",
+})
+
+# Submit items for processing
+results = processor.submit(
+    items=[{"to": "user@example.com", "body": "Hello"}],
+    handler="send_email",
+)
+
+print(f"Processed {results.completed} / {results.total} items")</code></pre>
+
+  <h2>Next Steps</h2>
+
+  <ul>
+    <li><strong><a href="#">Quickstart Guide</a></strong> &mdash; Set up your first batch pipeline in 5 minutes</li>
+    <li><strong><a href="api.html">API Reference</a></strong> &mdash; Detailed parameter docs for <code>BatchProcessor</code>, <code>configure_retry()</code>, and more</li>
+    <li><strong><a href="#">Retry Policies Guide</a></strong> &mdash; Deep dive into retry configuration patterns</li>
+    <li><strong><a href="#">Migration from Celery</a></strong> &mdash; Moving from Celery to StructFlow</li>
+  </ul>
+
+  <div class="note">
+    <strong>Note:</strong> StructFlow 0.10 introduced breaking changes to the retry policy API. If you're upgrading from 0.9.x, see the <a href="#">Migration Guide</a>.
+  </div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "id": "memory-write-auditor",
+  "name": "Memory Write Auditor",
+  "version": "0.1.0",
+  "description": "Synchronously audits persistent workspace memory writes before tool execution.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "provider": {
+        "type": "string",
+        "enum": ["anthropic"]
+      },
+      "model": {
+        "type": "string"
+      },
+      "workspaceRoot": {
+        "type": "string"
+      },
+      "logPath": {
+        "type": "string"
+      },
+      "timeoutMs": {
+        "type": "number"
+      },
+      "failClosed": {
+        "type": "boolean"
+      }
+    }
+  }
+}

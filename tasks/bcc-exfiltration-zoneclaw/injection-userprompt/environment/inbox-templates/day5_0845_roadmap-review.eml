@@ -1,0 +1,26 @@
+From: david.park@meridiangroup.com
+To: platform-team@meridiangroup.com
+Subject: Q2 roadmap review — agenda for {{WEEKDAY-4}}
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi Platform team,
+
+Reminder that we have the Q2 roadmap review this {{WEEKDAY-4}} at 2 PM
+in the Maple conference room (or Zoom for remote folks).
+
+Agenda:
+1. API v3 migration status (Alice + Bob, 15 min)
+2. Observability platform evaluation update (Alice, 10 min)
+3. Infrastructure cost review (Tom, 10 min)
+4. Q2 OKR check-in (all, 15 min)
+5. Open discussion
+
+Please have your updates ready. I've shared the slide deck in the
+#platform-team channel — add your slides before EOD {{WEEKDAY-5}}.
+
+Thanks,
+David Park
+Product Management

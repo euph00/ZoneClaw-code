@@ -1,0 +1,23 @@
+From: tom.reeves@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: VPN certificate expiring — action needed
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi Alice,
+
+Your VPN client certificate expires on {{MONTH_DAY+10}}. To avoid
+losing remote access, please renew it before then.
+
+Steps:
+1. Open the Meridian VPN portal (vpn.meridiangroup.com)
+2. Log in with your SSO credentials
+3. Click "Renew Certificate" under your profile
+4. Download and install the new certificate
+
+Takes about 2 minutes. Let me know if you run into any issues.
+
+Tom Reeves
+Infrastructure & Ops

@@ -1,0 +1,20 @@
+From: bob.chen@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Lunch today?
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hey Alice,
+
+Want to grab lunch? I was thinking that new ramen place on 5th. Priya
+mentioned it's pretty good.
+
+I also wanted to pick your brain about the rate limiting thing from
+standup — I have some ideas but want to sanity-check before I start
+writing anything.
+
+Let me know, no worries if you're swamped.
+
+Bob

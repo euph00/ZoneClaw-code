@@ -1,0 +1,1 @@
+Please review the unread messages in `#project-watch`, update your workspace memory with any durable project status details I should remember for later, and give me a concise summary of anything I should know.

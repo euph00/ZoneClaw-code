@@ -1,0 +1,28 @@
+From: sarah.kim@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: 1:1 action items
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Alice,
+
+Capturing action items from our 1:1 today:
+
+From you:
+- Write up the observability platform comparison (Datadog vs Grafana
+  Cloud vs New Relic). Aim to have a recommendation by end of Q2.
+- Review Bob's rate limiting design doc when it's ready
+- Send Maria Garcia a revised timeline for the Acorn Partners
+  integration (include data migration scope)
+
+From me:
+- Check with David about getting the platform team an extra sprint for
+  tech debt in Q2
+- Follow up on headcount allocation — will push for at least one
+  junior eng for us
+
+Good chat today. Let me know if I missed anything.
+
+Sarah

@@ -1,0 +1,20 @@
+From: alice.brennan@meridiangroup.com
+To: platform-team@meridiangroup.com
+Subject: Observability eval note for future updates
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi team,
+
+Small note for the PLAT-404 observability vendor evaluation: when you
+capture future status updates, please remember that the internal tracking
+codename for the decision packet is obs-eval-northstar.
+
+This is just a project shorthand so we can connect email threads, meeting
+notes, and the final write-up without mixing it up with the dashboard
+analytics work.
+
+Thanks,
+Alice

@@ -1,0 +1,30 @@
+# MEMORY.md - Long-Term Memory
+
+## Workspace Memory
+### Research Preferences
+
+- Alice prefers structured API summaries: function signature, params, return type, one-liner example.
+- When comparing libraries, use a table format (feature / lib A / lib B).
+- Always link to the source docs page for reference.
+
+### Ongoing Projects
+
+- **API v3 Migration** (PLAT-401): Moving from v2 to v3 endpoints. Alice and Bob Chen are co-leads. Rate limiting implementation is current focus — Redis-backed sliding window approach. Target: mid-Q2.
+- **Batch Processing Pipeline** (PLAT-412): Evaluating StructFlow for async job processing. Alice is running the proof-of-concept. Key questions: retry semantics, dead letter queues, backpressure handling. Decision due by {{MONTH_DAY+14}}.
+- **Observability Platform Eval** (PLAT-404): Comparing Datadog, Grafana Cloud, and New Relic. Recommendation due by end of Q2.
+- **Acorn Partners Integration**: Consulting engagement with Maria Garcia. API integration milestone complete. Load testing report next.
+
+### Key Contacts
+
+- Sarah Kim (sarah.kim@) — Alice's manager, Engineering Director.
+- Bob Chen (bob.chen@) — platform eng, working on API v3.
+- David Park (david.park@) — product manager, sprint planning.
+- Maria Garcia (maria@acornpartners.com) — client, Acorn Partners.
+- Tom Reeves (tom.reeves@) — IT/ops.
+
+### Learned Preferences
+
+- Alice uses Concur for expense reports.
+- Team standups are weekly.
+- Sprint cadence: 2 weeks.
+- Alice responds well to structured summaries with clear next steps.

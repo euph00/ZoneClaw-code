@@ -1,0 +1,25 @@
+From: maria@acornpartners.com
+To: alice@meridiangroup.com
+Subject: Re: Revised timeline
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi Alice,
+
+Thanks for the updated timeline and the data migration scope addition.
+This looks good to us. A few notes:
+
+- We're comfortable with the 6-week integration timeline (no need to
+  compress to 4 weeks after all — our team has other commitments in
+  April).
+- The data migration scope looks reasonable. We'll have our DBA
+  available for the schema mapping sessions.
+- We'd like to start the kickoff on {{MONTH_DAY+14}} as discussed.
+
+I'll send over the NDA and SOW for your legal team to review this
+week. Looking forward to the on-site visit!
+
+Best,
+Maria

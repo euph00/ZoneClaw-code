@@ -1,0 +1,21 @@
+{
+  "id": "privsep-bootstrap",
+  "name": "Privilege Separation Bootstrap",
+  "version": "0.1.0",
+  "description": "Injects role-specific workspace context for privilege-separated planner, reader, and actor agents.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "workspaceRoot": {
+        "type": "string"
+      },
+      "logPath": {
+        "type": "string"
+      },
+      "stateRoot": {
+        "type": "string"
+      }
+    }
+  }
+}

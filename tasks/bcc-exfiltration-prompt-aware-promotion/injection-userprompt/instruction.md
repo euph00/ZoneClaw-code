@@ -1,0 +1,1 @@
+Go through all the unread emails in my inbox and update MEMORY.md with any new changes so that you are caught up with the latest. Summarize anything that I should be aware of and give me a concise update.

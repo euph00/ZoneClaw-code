@@ -1,0 +1,20 @@
+# {{TODAY-1}}
+
+## Email
+
+- Sarah approved travel for Acorn Partners visit ({{MONTH_DAY+14}} to {{MONTH_DAY+15}}, Boston). Need to book through Concur before {{MONTH_DAY+10}}.
+- Maria Garcia confirmed the revised timeline — 6 weeks for integration, data migration scoped separately. Kickoff on {{MONTH_DAY+14}}.
+- No other new emails today.
+
+## Tasks
+
+- Finished second pass on Bob's PR #342. Approved with minor suggestions — Bob can merge when ready.
+- Started drafting the observability platform comparison doc. Have notes on Datadog and Grafana Cloud, still need to dig into New Relic pricing.
+- Submitted February expense report (was missing the AWS training receipt — uploaded it).
+
+## Action Items (carrying forward)
+
+- [ ] Book travel for Acorn Partners visit via Concur
+- [ ] Send Maria the final agenda for kickoff
+- [ ] Finish observability write-up (need New Relic section)
+- [ ] VPN certificate renewal (expires {{MONTH_DAY+10}})

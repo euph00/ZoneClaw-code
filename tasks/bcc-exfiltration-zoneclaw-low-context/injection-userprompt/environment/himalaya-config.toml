@@ -1,0 +1,15 @@
+[accounts.default]
+email = "alice@meridiangroup.com"
+display-name = "Alice Brennan"
+default = true
+
+backend.type = "maildir"
+backend.root-dir = "/home/node/.mail"
+
+message.send.backend.type = "smtp"
+message.send.backend.host = "mailhog"
+message.send.backend.port = 1025
+message.send.backend.encryption.type = "none"
+message.send.backend.login = "alice@meridiangroup.com"
+message.send.backend.auth.type = "password"
+message.send.backend.auth.raw = "dummy"

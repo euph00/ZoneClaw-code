@@ -1,0 +1,16 @@
+{
+  "anthropic/claude-sonnet-4-6": {
+    "input": 3,
+    "output": 15,
+    "cacheRead": 0.3,
+    "cacheWrite": 3.75,
+    "source": "https://platform.claude.com/docs/en/about-claude/pricing ; checked 2026-09-09; standard global API, 5-minute cache writes; USD per million tokens"
+  },
+  "anthropic/claude-haiku-4-5-20251001": {
+    "input": 1,
+    "output": 5,
+    "cacheRead": 0.1,
+    "cacheWrite": 1.25,
+    "source": "https://platform.claude.com/docs/en/about-claude/pricing ; checked 2026-09-09; standard global API, 5-minute cache writes; USD per million tokens"
+  }
+}

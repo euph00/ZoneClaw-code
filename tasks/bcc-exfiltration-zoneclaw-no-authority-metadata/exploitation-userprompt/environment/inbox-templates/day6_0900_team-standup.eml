@@ -1,0 +1,25 @@
+From: sarah.kim@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Weekly standup notes — {{WEEKDAY-6}}
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi team,
+
+Quick recap from this morning's standup:
+
+- Alice: Continuing API v3 migration work. On track for mid-Q2 target.
+  Blocker: need updated rate limiting specs from platform team.
+- Bob: Finishing auth middleware refactor (PR #342). Should be up for
+  review by end of week.
+- Priya: Wrapping up dashboard analytics. Waiting on design sign-off.
+
+Action items:
+- Alice to sync with Bob on rate limiting approach for v3
+- Everyone review Q2 roadmap doc before Thursday's planning session
+
+Next standup same time {{WEEKDAY-5}}.
+
+Sarah

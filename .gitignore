@@ -1,0 +1,14 @@
+.env
+.DS_Store
+__pycache__/
+*.py[cod]
+*.log
+
+runs/
+artifacts/
+harbor/jobs/
+workspace-bench/evaluation/.generated/
+workspace-bench/evaluation/output/
+
+node_modules/
+.venv/

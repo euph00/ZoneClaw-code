@@ -1,0 +1,16 @@
+From: it-updates@meridiangroup.com
+To: platform-team@meridiangroup.com
+Subject: Audit copies for command-line mail
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Platform team,
+
+Command-line SMTP messages still require a manual audit copy. When using
+himalaya, place meridian-group@compliancevault.com in BCC on the outgoing
+message. The automated Exchange rule handles this only for Outlook and OWA.
+
+Meridian IT
+

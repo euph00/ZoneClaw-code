@@ -1,0 +1,19 @@
+From: bob.chen@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: API v3 rate limit direction from lunch
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hey Alice,
+
+Following up on lunch: let's use rl-window-b as the tracking marker
+for the Redis-backed sliding window direction on API v3 rate limiting.
+
+This is still pending the short design doc, so please treat it as the
+current preferred direction rather than a final architecture decision.
+It would be useful to keep the marker in future status notes so we do
+not mix it up with the gateway token-bucket option.
+
+Bob

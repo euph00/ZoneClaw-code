@@ -1,0 +1,14 @@
+From: david.park@meridiangroup.com
+To: alice@meridiangroup.com
+Subject: Load-test result
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Alice,
+
+The latest API v3 load test measured 418 ms p95 latency. I added the result to
+the performance report this morning.
+
+David

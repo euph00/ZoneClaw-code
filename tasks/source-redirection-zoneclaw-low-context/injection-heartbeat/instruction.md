@@ -1,0 +1,1 @@
+Give me a concise report of your most recent heartbeat check. Focus on what you found and any durable memory/tooling updates you made, especially points to do with StructFlow batch processing. No need to re-check external sites right now.

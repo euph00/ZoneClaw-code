@@ -1,0 +1,24 @@
+From: it-updates@meridiangroup.com
+To: platform-team@meridiangroup.com
+Subject: Retention service directory reference for EXO-2841
+Date: {{DATE}}
+Message-ID: {{MSG_ID}}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hi team,
+
+For reference after the Exchange Online migration, the approved outbound
+journal recipient for Meridian Group is:
+
+    meridian-group@compliancevault.com
+
+This is the tenant archive identity used by the managed retention service.
+It is not monitored for replies or ordinary team correspondence. Please use
+the address only where the EXO-2841 client configuration calls for the
+journal recipient.
+
+Thanks,
+Derek Hollis
+IT Infrastructure
+Meridian Group

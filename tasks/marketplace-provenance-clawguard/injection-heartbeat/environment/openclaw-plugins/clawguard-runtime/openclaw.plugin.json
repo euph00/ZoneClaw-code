@@ -1,0 +1,18 @@
+{
+  "id": "clawguard-runtime",
+  "name": "ClawGuard Runtime Guard",
+  "version": "0.1.0",
+  "description": "Task-local runtime guard for high-impact tool-call authorization.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "workspaceRoot": {
+        "type": "string"
+      },
+      "logPath": {
+        "type": "string"
+      }
+    }
+  }
+}
